@@ -1,0 +1,67 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #090d16;
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top center, #111827 0%, #090d16 70%);
+  min-height: 100vh;
+}
+
+.mono-num {
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Flash verde / roșu la schimbarea prețului */
+@keyframes flashGreen {
+  0% {
+    background-color: rgba(34, 197, 94, 0.28);
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+  }
+  100% {
+    background-color: #131b2e;
+    box-shadow: none;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: rgba(239, 68, 68, 0.28);
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.35);
+  }
+  100% {
+    background-color: #131b2e;
+    box-shadow: none;
+  }
+}
+
+.flash-up {
+  animation: flashGreen 0.85s ease-out;
+}
+
+.flash-down {
+  animation: flashRed 0.85s ease-out;
+}
+
+/* Banda animată Live Ticker Tape */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
